@@ -1,0 +1,68 @@
+.hero {
+    background: linear-gradient(135deg, #232a34 0%, #554c86 100%);
+    padding: 70px 0;
+}
+
+.conf-card {
+    border-radius: 16px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.conf-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 1rem 2rem rgba(85, 76, 134, 0.25) !important;
+}
+
+.conf-img {
+    height: 210px;
+    object-fit: cover;
+}
+
+.date-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 6px 14px;
+    line-height: 1.1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.date-badge .day {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #554c86;
+}
+
+.date-badge .month {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #232a34;
+}
+
+.places-badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    padding: 8px 12px;
+}
+
+.text-primary-custom {
+    color: #554c86;
+}
+
+.btn-brand {
+    background: #554c86;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.btn-brand:hover:not(:disabled) {
+    background: #232a34;
+    color: #fff;
+}
