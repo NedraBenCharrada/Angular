@@ -1,0 +1,24 @@
+<div class="container my-5">
+    <h2 class="text-center mb-4">Upcoming Conferences</h2>
+
+    <div class="row g-4">
+        @for (conf of conferences; track conf.id) {
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <img [src]="conf.picture" class="card-img-top" [alt]="conf.title" />
+                <div class="card-body">
+                    <h5 class="card-title">{{ conf.title }}</h5>
+                    <p class="card-text mb-1">📅 {{ conf.date | date: 'dd/MM/yyyy' }}</p>
+                    <p class="card-text mb-2">📍 {{ conf.address }}</p>
+
+                    @if (conf.availablePlaces > 0) {
+                    <span class="badge bg-success">{{ conf.availablePlaces }} places available</span>
+                    } @else {
+                    <span class="badge bg-danger">Sold out</span>
+                    }
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
