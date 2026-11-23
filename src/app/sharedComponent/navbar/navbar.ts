@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { SectionService, type Section } from '../../services/section.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,14 +7,19 @@ import { SectionService, type Section } from '../../services/section.service';
   styleUrl: './navbar.css',
 })
 export class Navbar {
-  section = inject(SectionService);
-
-  links: { label: string; id: Section }[] = [
-    { label: 'Accueil', id: 'accueil' },
-    { label: 'Profil', id: 'profil' },
-    { label: 'Conférences', id: 'conferences' },
-    { label: 'Amis', id: 'amis' },
-    { label: 'Notifications', id: 'notifications' },
-    { label: 'Admin', id: 'admin' },
+  links = [
+    { label: 'Accueil' },
+    { label: 'Profil' },
+    { label: 'Conférences' },
+    { label: 'Amis' },
+    { label: 'Notifications' },
+    { label: 'Admin' },
   ];
+
+  active = 'Accueil';
+
+  // only changes the highlighted button: no scroll, no filter
+  select(label: string): void {
+    this.active = label;
+  }
 }

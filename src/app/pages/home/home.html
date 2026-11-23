@@ -1,27 +1,9 @@
 <div class="page">
-
-    @switch (section.current()) {
-
-    @case ('accueil') {
     <app-user-profile />
     <app-friends-list />
     <app-notifications />
-    }
 
-    @case ('profil') {
-    <app-user-profile />
-    }
-
-    @case ('amis') {
-    <app-friends-list />
-    }
-
-    @case ('notifications') {
-    <app-notifications />
-    }
-
-    @case ('conferences') {
-    <section class="section-card green">
+    <section class="section-card green" id="conferences">
         <div class="section-head">
             <div class="icon-circle"><i class="bi bi-calendar3"></i></div>
             <div>
@@ -35,18 +17,4 @@
 
         <app-list-conf [conferences]="filteredList" (book)="participate($event)" />
     </section>
-    }
-
-    @case ('admin') {
-    <section class="section-card blue">
-        <div class="section-head">
-            <div class="icon-circle"><i class="bi bi-gear-fill"></i></div>
-            <h2>Espace administration</h2>
-        </div>
-        <p>Cette section est réservée à l'administrateur.</p>
-    </section>
-    }
-
-    }
-
 </div>

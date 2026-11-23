@@ -1,7 +1,6 @@
 <nav class="menu">
-    @for (link of links; track link.id) {
-    <button type="button" class="menu-btn" [class.active]="section.current() === link.id"
-        (click)="section.show(link.id)">
+    @for (link of links; track link.label) {
+    <button type="button" class="menu-btn" [class.active]="active === link.label" (click)="select(link.label)">
         {{ link.label }}
     </button>
     }

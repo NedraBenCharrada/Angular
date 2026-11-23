@@ -1,11 +1,10 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Conference } from '../../models/conference';
 import { ListConf } from '../list-conf/list-conf';
 import { UserProfile } from '../../sharedComponent/user-profile/user-profile';
 import { FriendsList } from '../../sharedComponent/friends-list/friends-list';
 import { Notifications } from '../../sharedComponent/notifications/notifications';
-import { SectionService } from '../../services/section.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +13,6 @@ import { SectionService } from '../../services/section.service';
   styleUrl: './home.css',
 })
 export class Home implements OnInit {
-  section = inject(SectionService);
   list: Conference[] = [];
   searchTitle: string = '';
 
@@ -41,7 +39,6 @@ export class Home implements OnInit {
   }
 }
 
-// The list of conferences (kept in home, no separate file)
 export class ConferenceList {
   conferences: Conference[] = [
     new Conference(
