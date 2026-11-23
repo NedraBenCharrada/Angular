@@ -1,13 +1,21 @@
-.app-navbar {
-    background: #232a34;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+:host {
+    display: block;
 }
 
-.nav-link {
-    transition: color 0.3s;
+.app-header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2f6bc4 100%);
+    color: #fff;
+    text-align: center;
+    padding: 26px 16px 22px;
 }
 
-.nav-link:hover,
-.nav-link.active {
-    color: #a79ce0 !important;
+.app-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.app-header p {
+    margin: 6px 0 0;
+    font-size: 0.9rem;
 }

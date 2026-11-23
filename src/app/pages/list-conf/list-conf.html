@@ -1,53 +1,22 @@
-<section class="hero text-center text-white">
-    <div class="container">
-        <h1 class="display-5 fw-bold">Upcoming Conferences</h1>
-        <p class="lead mb-0">Discover, learn and connect with the tech community</p>
-    </div>
-</section>
+<div class="conf-grid">
+    @for (conf of conferences; track conf.id) {
+    <article class="conf-card" (click)="toggleDetails(conf)">
+        <h3>{{ conf.title | uppercase }}</h3>
 
-<div class="container my-5">
-    <div class="row g-4">
-        @for (conf of conferences; track conf.id) {
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card conf-card h-100 border-0 shadow-sm overflow-hidden">
+        <p><strong>Date :</strong> {{ conf.date | date: 'dd/MM/yyyy' }}</p>
+        <p><strong>Lieu :</strong> {{ conf.address }}</p>
+        <p><strong>Places restantes :</strong> {{ conf.availablePlaces }}</p>
 
-                <div class="position-relative">
-                    <img [src]="conf.picture" class="card-img-top conf-img" [alt]="conf.title" />
-
-                    <div class="date-badge text-center">
-                        <span class="day">{{ conf.date | date: 'dd' }}</span>
-                        <span class="month">{{ conf.date | date: 'MMM' }}</span>
-                    </div>
-
-                    @if (conf.availablePlaces > 0) {
-                    <span class="badge rounded-pill bg-success places-badge">
-                        <i class="bi bi-people-fill me-1"></i>{{ conf.availablePlaces }} places left
-                    </span>
-                    } @else {
-                    <span class="badge rounded-pill bg-danger places-badge">
-                        <i class="bi bi-x-circle-fill me-1"></i>Sold out
-                    </span>
-                    }
-                </div>
-
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">{{ conf.title }}</h5>
-                    <p class="text-muted mb-1">
-                        <i class="bi bi-calendar-event me-2 text-primary-custom"></i>{{ conf.date | date: 'fullDate' }}
-                    </p>
-                    <p class="text-muted mb-0">
-                        <i class="bi bi-geo-alt-fill me-2 text-primary-custom"></i>{{ conf.address }}
-                    </p>
-                </div>
-
-                <div class="card-footer bg-white border-0 pb-3">
-                    <button class="btn btn-brand w-100" [disabled]="conf.availablePlaces === 0">
-                        {{ conf.availablePlaces > 0 ? 'Book now' : 'Unavailable' }}
-                    </button>
-                </div>
-
-            </div>
-        </div>
+        @if (selectedId === conf.id) {
+        <p class="details">{{ conf.description }}</p>
         }
-    </div>
+
+        <button class="btn-conf" [ngClass]="btnClass(conf)" [disabled]="conf.availablePlaces === 0"
+            (click)="onBook($event, conf)">
+            S'inscrire
+        </button>
+    </article>
+    } @empty {
+    <p class="empty">Aucune conférence à venir.</p>
+    }
 </div>

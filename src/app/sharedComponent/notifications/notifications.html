@@ -1,0 +1,22 @@
+<section class="section-card orange" id="notifications">
+    <div class="section-head">
+        <div class="icon-circle"><i class="bi bi-bell-fill"></i></div>
+        <h2>Zone de notifications</h2>
+    </div>
+
+    <p>Vous avez {{ notifications.length }} nouvelles notifications.</p>
+
+    <button class="btn-light" (click)="show = !show">
+        {{ show ? 'Masquer les notifications' : 'Afficher les notifications' }}
+    </button>
+
+    @if (show) {
+    <ul>
+        @for (n of notifications; track n) {
+        <li>{{ n }}</li>
+        } @empty {
+        <li>Aucune notification.</li>
+        }
+    </ul>
+    }
+</section>

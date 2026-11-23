@@ -1,2 +1,52 @@
-<h1>{{title}}</h1>
-<button class="btn btn-sm btn-primary" (click)="change()" [hidden]="state">change</button>
+<div class="page">
+
+    @switch (section.current()) {
+
+    @case ('accueil') {
+    <app-user-profile />
+    <app-friends-list />
+    <app-notifications />
+    }
+
+    @case ('profil') {
+    <app-user-profile />
+    }
+
+    @case ('amis') {
+    <app-friends-list />
+    }
+
+    @case ('notifications') {
+    <app-notifications />
+    }
+
+    @case ('conferences') {
+    <section class="section-card green">
+        <div class="section-head">
+            <div class="icon-circle"><i class="bi bi-calendar3"></i></div>
+            <div>
+                <h2>Liste des conférences à venir</h2>
+                <p class="subtitle">Cliquez sur une conférence pour afficher ses détails.</p>
+            </div>
+        </div>
+
+        <input type="text" name="search" class="search-input" placeholder="Taper le titre de la conférence"
+            [(ngModel)]="searchTitle" />
+
+        <app-list-conf [conferences]="filteredList" (book)="participate($event)" />
+    </section>
+    }
+
+    @case ('admin') {
+    <section class="section-card blue">
+        <div class="section-head">
+            <div class="icon-circle"><i class="bi bi-gear-fill"></i></div>
+            <h2>Espace administration</h2>
+        </div>
+        <p>Cette section est réservée à l'administrateur.</p>
+    </section>
+    }
+
+    }
+
+</div>

@@ -1,68 +1,80 @@
-.hero {
-    background: linear-gradient(135deg, #232a34 0%, #554c86 100%);
-    padding: 70px 0;
+.conf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
 }
 
 .conf-card {
-    border-radius: 16px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .conf-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 1rem 2rem rgba(85, 76, 134, 0.25) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
 }
 
-.conf-img {
-    height: 210px;
-    object-fit: cover;
-}
-
-.date-badge {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: #fff;
-    border-radius: 12px;
-    padding: 6px 14px;
-    line-height: 1.1;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.date-badge .day {
-    display: block;
-    font-size: 1.4rem;
+.conf-card h3 {
+    margin: 0 0 12px;
+    font-size: 1.05rem;
     font-weight: 700;
-    color: #554c86;
+    color: #1e3a5f;
 }
 
-.date-badge .month {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: #232a34;
+.conf-card p {
+    margin: 8px 0;
+    font-size: 0.85rem;
 }
 
-.places-badge {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    padding: 8px 12px;
+.details {
+    padding: 8px 10px;
+    background: #f3f4f6;
+    border-radius: 8px;
+    color: #4b5563;
 }
 
-.text-primary-custom {
-    color: #554c86;
+.empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #6b7280;
+    font-style: italic;
 }
 
-.btn-brand {
-    background: #554c86;
+/* Button colors: green / orange / red */
+.btn-conf {
+    margin-top: 8px;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
     color: #fff;
-    border-radius: 10px;
-    padding: 10px;
-    transition: 0.3s;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: filter 0.2s;
 }
 
-.btn-brand:hover:not(:disabled) {
-    background: #232a34;
-    color: #fff;
+.btn-green {
+    background: #15803d;
+}
+
+.btn-orange {
+    background: #d97706;
+}
+
+.btn-red {
+    background: #dc2626;
+}
+
+.btn-conf:hover:not(:disabled) {
+    filter: brightness(0.9);
+}
+
+.btn-conf:disabled {
+    cursor: not-allowed;
 }
